@@ -1,0 +1,28 @@
+{
+  "name": "skin-cancer-identifier",
+  "version": "1.0.0",
+  "description": "A machine learning model designed to identify whether a tumor on the skin is benign or malignant.",
+  "main": "server.js",
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.0.4",
+    "@tensorflow/tfjs": "^2.3.0",
+    "@tensorflow/tfjs-converter": "^1.2.11",
+    "@tensorflow/tfjs-core": "^1.2.11",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devonte202/skin-cancer-identifier.git"
+  },
+  "author": "Devonte G Duncan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devonte202/skin-cancer-identifier/issues"
+  },
+  "homepage": "https://github.com/Devonte202/skin-cancer-identifier#readme"
+}
