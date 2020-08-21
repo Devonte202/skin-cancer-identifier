@@ -1,11 +1,15 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Predictor from './components/Predictor'
 
 
 function App() {
   return (
-    <div>Hello World!</div>
+    <div>
+      <div>Hello World!</div>
+      <Predictor />
+    </div>
   )
 }
 
-export default App;
+export default App
