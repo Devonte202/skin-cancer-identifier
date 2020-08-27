@@ -1,11 +1,7 @@
-.body {
-  color: white;
-  background: black;
- }
+
 div {
-  display: flex;
-  flex-direction: column;
+  
   text-align: center;
   align-items: center;
-  padding: 30px;
+  
 }

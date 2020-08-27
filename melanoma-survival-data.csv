@@ -1,0 +1,4 @@
+CancerType,Sex,Race,5-yearRelativeSurvival%
+'Melanomas of the Skin','Male and Female','Black','67.4'
+'Melanomas of the Skin','Male and Female','White','89.5'
+'Melanomas of the Skin','Male and Female','Other','79.3'
