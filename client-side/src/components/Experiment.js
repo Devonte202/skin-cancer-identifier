@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import { Card, Icon, Dimmer, Loader, Image } from 'semantic-ui-react'
 
 const tf = require('@tensorflow/tfjs')
 const tmImage = require('@teachablemachine/image')
@@ -16,7 +16,7 @@ export default function Experiment() {
         return images
     }
     const getPrediction = async (img, actual) => {
-        
+        setLoading(true)
         const tmURL = 'https://teachablemachine.withgoogle.com/models/yFK1MCn9u/'
         const modelURL = tmURL + 'model.json'
         const metadataURL = tmURL + 'metadata.json'
@@ -31,8 +31,9 @@ export default function Experiment() {
             for(let prediction of data){
                 predictions[prediction.className] = prediction.probability
             }
-           setLoading((loading) => loading += 1)
+
            setImagePredictions((imagePredictions) => [...imagePredictions, predictions])
+           setLoading(false)
         })
       }
 
@@ -40,25 +41,45 @@ export default function Experiment() {
         getImages().forEach((image) => getPrediction(image, 'Benign'))
         
       }, [])
-      useEffect(() => {
-          console.log(imagePredictions)
-          console.log(loading)
-      }, [imagePredictions])
+      
     return (
         <div>
+            {loading && <Dimmer active>
+            <Loader indeterminate>Running Analysis</Loader>
+            </Dimmer>}
+            <div style={{display: 'flex'}}>
             {   imagePredictions &&
                 imagePredictions.map((data) => {
                 console.log(data)
                 return (
-                    <Card
-                        image={data.image}
-                        header={data.actual}
-                        meta={`Benign: ${Math.round((data.Benign + Number.EPSILON) * 100)}% Malignant: ${Math.round((data.Malignant + Number.EPSILON) * 100)}%`}
-                        description=''
-                    />
+                    <Card>
+												<Image src={data.image} size='small' />
+												<Card.Content>
+												<Card.Header>Actual Status: {data.actual}</Card.Header>
+												
+												<Card.Description>
+												{`Benign: ${Math.round((data.Benign + Number.EPSILON) * 100)}% Malignant: ${Math.round((data.Malignant + Number.EPSILON) * 100)}%`}
+												</Card.Description>
+												</Card.Content>
+												<Card.Content extra>
+												{
+													Math.round((data.Benign + Number.EPSILON) * 100) > 50 ?
+													<a>
+														<Icon name='thumbs up outline' />
+														Prediction Accurate
+												</a>
+												:
+												<a>
+														<Icon name='thumbs down' />
+														Prediction Inaccurate
+												</a>
+												}
+												</Card.Content>
+										</Card>
                 )
             })
             }
+            </div>
             
         </div>
     )

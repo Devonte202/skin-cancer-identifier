@@ -68,8 +68,6 @@ const Predictor = () => {
         ></input>
         <Image src={userImg} size='small' wrapped />
       </div>
-          
-      
       
       <Segment>
         {loading && <Dimmer active>

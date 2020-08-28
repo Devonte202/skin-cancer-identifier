@@ -33,8 +33,8 @@ function App() {
       <div className="d-flex" style={{justifyContent: 'space-around'}}>
       <DeathStatsLineGraph />
       <SurvivalStatsLineGraph />
-      <Experiment />
      </div>
+     <Experiment />
     </div>
   )
 }
