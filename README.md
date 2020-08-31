@@ -1,4 +1,4 @@
-# skin-cancer-identifier
+# Skin Cancer Identifier
 A machine learning model designed to identify whether a tumor on the skin is benign or malignant. 
 
 ### The Question
