@@ -18,15 +18,15 @@ function App() {
             height="30"
             className="d-inline-block align-top"
           />{' '}
-          Machine Learning Model
+          Skin Cancer Predictor
         </Navbar.Brand>
       </Navbar>
-      <Header as='h2' attached='top'>
+      <Header as='h2'>
         Using Machine Learning to Predict Melanoma
       </Header>
-      <Segment attached>
+      <Header as='h4' >
        Upload a photo below, of suspected melanoma on your skin to recieve a procedurally generated prediction of whether it's benign or malignant
-      </Segment>
+      </Header>
       <div class="main">
         <Predictor />
       </div>
@@ -34,7 +34,16 @@ function App() {
       <DeathStatsLineGraph />
       <SurvivalStatsLineGraph />
      </div>
+     <Header as='h2'>
+        Predicting Melanoma On People Of Color
+      </Header>
+      <Header as='h4' >
+       20% accuracy on benign predictions and 80% accuracy on malignant predictions
+      </Header>
      <Experiment />
+     <Segment>
+       <b>Disclaimer: Due to a lack of available datasets containing benign/malignant leisions on darker skinned patients. Experiement shall remain inconclusive.</b>
+     </Segment>
     </div>
   )
 }

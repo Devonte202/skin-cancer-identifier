@@ -29,8 +29,11 @@ This project is intended to be informative for two audiences, people seeking mor
 - Test this model using data from the same dataset, record the accuracy
 - Test the same model using another dataset consisting of darker skin tumors, record the accuracy
 
-**Observation**: TBD
-**Conclusion**: TBD
+**Observation**: 
+- After scowering the internet for data consisting of benign/malignant leisions on darker skinned patients, I found that such data is far and few.
+- Given the small data points I managed to gather, the machine learning model was indeed less accurate with darker skinned patients than lighter skinned patients.
+**Conclusion**: 
+-  Due to a lack of available datasets, experiement shall remain inconclusive.
 
 
 #### Technology 

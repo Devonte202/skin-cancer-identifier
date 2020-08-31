@@ -28,8 +28,10 @@ const Predictor = () => {
     reader.addEventListener('load', (event) => {
     setUserImg(event.target.result)
     })
+    console.log(file)
     reader.readAsDataURL(file)
   }
+  
   const getPrediction = async (img) => {
     setLoading(true)
     const tmURL = 'https://teachablemachine.withgoogle.com/models/yFK1MCn9u/'
@@ -44,6 +46,7 @@ const Predictor = () => {
         for(let prediction of data){
             predictions[prediction.className] = prediction.probability
         }
+        console.log(predictions)
        setPrediction(predictions)
        setLoading(false)
     })
@@ -77,10 +80,12 @@ const Predictor = () => {
           <Grid.Column>
           <h1>Benign</h1>
           <Statistic label='Percent Chance' value={<animated.div style={{fontSize:'40px', fontWeight:'bold', fontFamily:'monospace'}}>{benignNum.number}</animated.div>}/>
+          <p>Accuracy: 81%</p>
           </Grid.Column>
           <Grid.Column>
           <h1>Malignant</h1>
-        <Statistic label='Percent Chance' value={<animated.div style={{fontSize:'40px', fontWeight:'bold', fontFamily:'monospace'}}>{malignantNum.number}</animated.div>}/>
+          <Statistic label='Percent Chance' value={<animated.div style={{fontSize:'40px', fontWeight:'bold', fontFamily:'monospace'}}>{malignantNum.number}</animated.div>}/>
+          <p>Accuracy: 84%</p>
           </Grid.Column>
         </Grid>
 
