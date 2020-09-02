@@ -112,7 +112,7 @@ app.get("/api/experiment-results", (req, res) => {
   res.status(200).json(results)
 })
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client-side/build/index.html"))
 })
 
